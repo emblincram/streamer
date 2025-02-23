@@ -1,0 +1,12 @@
+BasedOnStyle: Google # Alternativen: LLVM, Google, Chromium, Mozilla, WebKit, Microsoft, GNU
+IndentWidth: 4
+UseTab: Never
+SortIncludes: true
+IncludeBlocks: Regroup
+KeepEmptyLinesAtTheStartOfBlocks: false
+AllowShortIfStatementsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: All #InlineOnly # (Never, Empty, InlineOnly, All)
+PointerAlignment: Left # Alternativen: Left, Middle, Right
+ReferenceAlignment: Left # Alternativen: Left, Middle, Right
+ColumnLimit: 160
+AllowShortEnumsOnASingleLine: false

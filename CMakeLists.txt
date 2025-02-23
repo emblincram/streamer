@@ -4,7 +4,7 @@
 
 cmake_minimum_required(VERSION 3.10)
 
-project(da LANGUAGES CXX)
+project(da LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -12,6 +12,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # libwebsockets finden
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(LIBWEBSOCKETS REQUIRED libwebsockets)
+pkg_check_modules(JSONCPP REQUIRED jsoncpp)
 
 include_directories(${LIBWEBSOCKETS_INCLUDE_DIRS})
 link_directories(${LIBWEBSOCKETS_LIBRARY_DIRS})
@@ -32,8 +33,8 @@ set(INCLUDE_DIRS
 )
 
 add_executable(streamer ${SRC_DIR}/streamer.cpp ${SOURCES} ${HEADERS})
-target_include_directories(streamer PRIVATE ${INCLUDE_DIRS})
-target_link_libraries(streamer ${LIBWEBSOCKETS_LIBRARIES})
+target_include_directories(streamer PRIVATE ${INCLUDE_DIRS} ${JSONCPP_INCLUDE_DIRS})
+target_link_libraries(streamer ${LIBWEBSOCKETS_LIBRARIES} ${JSONCPP_LIBRARIES})
 
 set(CMAKE_INSTALL_PREFIX "/usr")
 
